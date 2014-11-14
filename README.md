@@ -8,7 +8,7 @@ SDL bindings for Chapel
 
 Simple Direct Media Player
 
-        Copyright (C) 1997-2014 Sam Lantinga <slouken@libsdl.org>
+	Copyright (C) 1997-2014 Sam Lantinga <slouken@libsdl.org>
 
 The file `hello.bmp` is
 
