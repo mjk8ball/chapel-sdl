@@ -12,7 +12,7 @@ Simple Direct Media Player
 
 The file `hello.bmp` is
 
-	Copyright (C) 2013 Will Usher released under MIT license
+	Copyright (C) 2013 Will Usher - file provided under MIT license
 
 ### NOTES!
 
