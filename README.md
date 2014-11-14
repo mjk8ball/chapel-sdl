@@ -15,4 +15,8 @@ Simple Direct Media Player
 
 	The --llvm flag causes the following error: internal error: SYM0636 chpl Version 1.10.0.3a08ce3
 	The --fast flag causes a compiler segmentation fault
+	
+### SDL Tutorials
+
+	http://lazyfoo.net/SDL_tutorials/
 
