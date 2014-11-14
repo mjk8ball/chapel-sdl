@@ -16,8 +16,8 @@ The file `hello.bmp` is
 
 ### NOTES!
 
-	The --llvm flag causes the following error: internal error: SYM0636 chpl Version 1.10.0.3a08ce3
-	The --fast flag causes a compiler segmentation fault
+	The --llvm chpl compiler flag causes the following error: internal error: SYM0636 chpl Version 1.10.0.3a08ce3
+	The --fast chpl compiler flag causes a compiler segmentation fault
 	
 ### SDL Tutorials
 
