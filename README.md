@@ -10,6 +10,9 @@ Simple Direct Media Player
 
         Copyright (C) 1997-2014 Sam Lantinga <slouken@libsdl.org>
 
+The file `hello.bmp` is
+
+	Copyright (C) 2013 Will Usher released under MIT license
 
 ### NOTES!
 
@@ -19,4 +22,6 @@ Simple Direct Media Player
 ### SDL Tutorials
 
 	http://lazyfoo.net/SDL_tutorials/
+	http://www.willusher.io/pages/sdl2/
+	https://github.com/Twinklebear/TwinklebearDev-Lessons
 
