@@ -3,8 +3,8 @@ chapelsdl
 
 SDL bindings for Chapel
 
-        Copyright (C) 2014 Chris Taylor <mjk8ball@users.noreply.github.com> 
-	Message mjk8ball through github.
+	Copyright (C) 2014 Chris Taylor <mjk8ball@users.noreply.github.com> 
+	Message mjk8ball through github
 
 Simple Direct Media Player
 
