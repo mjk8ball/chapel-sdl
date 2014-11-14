@@ -31,6 +31,6 @@ The file `hello.bmp` is
 	http://chapel.cray.com/
 	https://github.com/chapel-lang/chapel
 
-### ZLIB LICENCE
+### ZLIB LICENSE
 
 	http://www.gzip.org/zlib/zlib_license.html
