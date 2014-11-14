@@ -1,4 +1,4 @@
-chapelsdl
+chapel-sdl
 =========
 
 SDL bindings for Chapel
