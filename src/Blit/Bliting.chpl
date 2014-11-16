@@ -44,7 +44,7 @@ assert( win != nil, "window allocation failed");
 var ren : SDLRenderer = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 assert( ren != nil, "renderer allocation failed"); 
 
-var bmp : SDLSurface = SDL_LoadBMP("hello.bmp");
+var bmp : SDLSurface = SDL_LoadBMP("media/hello.bmp");
 assert( bmp != nil, "surface allocation failed"); 
 
 var tex : SDLTexture = SDL_CreateTextureFromSurface(ren, bmp);
