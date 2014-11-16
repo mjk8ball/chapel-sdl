@@ -4,12 +4,18 @@ CC=chpl
 SDL_LIBDIR=/usr/local/lib/
 CC_LIBDIR=-L$(SDL_LIBDIR)
 
-SDL_INCDIR=/usr/local/include/SDL2/
+INCDIR=/usr/local/include
+SDL_INCDIR=$(INCDIR)/SDL2/
+
 CC_INCDIR=-I$(SDL_INCDIR)
 
 SDL_LIB=-lSDL2
+SDLIMG_LIB=-lSDL2_image
 
 SDL_HEADERS=SDL.h
+SDLIMG_HEADERS=SDL_image.h
+
+SDL_MODULE_DIR=$(shell pwd)
 
 ##
 # NOTE
@@ -19,15 +25,13 @@ SDL_HEADERS=SDL.h
 #
 # the --fast flag causes a compiler segmentation fault
 
-CC_FLAGS=$(CC_INCDIR) $(CC_LIBDIR) $(SDL_LIB) $(SDL_HEADERS)
+CC_FLAGS=$(CC_INCDIR) $(CC_LIBDIR) $(SDL_LIB) $(SDL_HEADERS) -M $(SDL_MODULE_DIR)
 
 RM=rm
 
 all:
-	$(CC) HelloWorld.chpl $(CC_FLAGS) -o HelloWorld 
-	$(CC) Bliting.chpl $(CC_FLAGS) -o Bliting
+	$(CC) Hello/HelloWorld.chpl $(CC_FLAGS) -o HelloWorld 
 
 clean:
 	$(RM) HelloWorld 
-	$(RM) Bliting 
 
