@@ -95,7 +95,7 @@ extern proc IMG_isPNG(src : SDLRWops) : int;
 extern proc IMG_isLBM(src : SDLRWops) : int;
 extern proc IMG_isXV(src : SDLRWops) : int;
 
-extern proc IMG_SetError(const fmt : c_string, ...) : void;
+extern proc IMG_SetError(const fmt : c_string, args ...?k) : void;
 extern proc IMG_GetError() : c_string;
 
 }
