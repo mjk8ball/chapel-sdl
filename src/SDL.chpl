@@ -1,6 +1,6 @@
 /*
 
-ChapelSDL bindings
+Chapel SDL bindings
 
 	Copyright (C) 2014 Chris Taylor <mjk8ball@users.noreply.github.com> (message mjk8ball through github)
 
@@ -93,6 +93,13 @@ extern record SDL_eventaction {
 extern record SDL_VideoInfo {
 }
 
+extern record SDL_version {
+}
+
+extern record SDL_RWops {
+} 
+
+
 type SDLWindow = c_ptr(SDL_Window);
 type SDLRect = c_ptr(SDL_Rect);
 type SDLSurface = c_ptr(SDL_Surface);
@@ -100,6 +107,8 @@ type SDLRenderer = c_ptr(SDL_Renderer);
 type SDLTexture = c_ptr(SDL_Texture);
 type SDLEvent = c_ptr(SDL_Event);
 type SDLVideoInfo = c_ptr(SDL_VideoInfo);
+type SDLVersion = c_ptr(SDL_version);
+type SDLRWops = c_ptr(SDL_RWops);
 
 extern proc SDL_GetVideoInfo() : SDLVideoInfo;
 extern proc SDL_SetVideoMode(w : int, h : int, bpp : int, flags : uint) : SDLSurface;
@@ -128,6 +137,53 @@ extern proc SDL_GetBasePath() : c_string;
 extern proc SDL_PollEvent( e : SDLEvent);
 
 extern proc SDL_PeepEvents( e : SDLEvent, numevents : int, action : SDL_eventaction, minType : uint, maxType : uint) : int;
+
+extern proc SDL_RenderCopy( ren : SDLRenderer, tex : SDLTexture, srcrect : SDL_Rect, dstrect : SDL_Rect) : int;
+
+extern const SDL_LOG_CATEGORY_APPLICATION : uint;
+extern const SDL_LOG_CATEGORY_ERROR : uint;
+extern const SDL_LOG_CATEGORY_SYSTEM : uint;
+extern const SDL_LOG_CATEGORY_AUDIO : uint;
+extern const SDL_LOG_CATEGORY_VIDEO : uint;
+extern const SDL_LOG_CATEGORY_RENDER : uint;
+extern const SDL_LOG_CATEGORY_INPUT : uint;
+extern const SDL_LOG_CATEGORY_CUSTOM : uint;
+
+extern proc SDL_Log(fmt : c_string, args ...?k) : void;
+extern proc SDL_LogCritical(category : uint, fmt : c_string, args ...?k) : void;
+extern proc SDL_LogDebug(category : uint, fmt : c_string, args ...?k) : void;
+extern proc SDL_LogError(category : uint, fmt : c_string, args ...?k) : void;
+extern proc SDL_LogResetPriorities() : void;
+extern proc SDL_LogVerbose(category : int, const fmt : c_string, args ...?l) : void;
+extern proc SDL_LogWarn(category : int, const fmt : c_string, args...?k) : void;
+
+/*
+
+
+void SDL_LogSetOutputFunction(SDL_LogOutputFunction callback,
+                              void*                 userdata)
+
+
+void SDL_LogSetPriority(int             category,
+                        SDL_LogPriority priority)
+
+void SDL_LogSetAllPriority(SDL_LogPriority priority)
+extern proc SDL_LogInfo(category : uint, fmt : c_string, args ...?k) : void;
+extern proc SDL_LogGetOutputFunction(cb : uint, fmt : c_string, args ...?k) : void;
+extern proc SDL_LogMessage(category : uint, fmt : c_string, args ...?k) : void;
+extern proc SDL_LogMessageV(category : uint, fmt : c_string, args ...?k) : void;
+
+type SDL_LogPriority = int;
+
+SDL_LOG_PRIORITY_VERBOSE
+SDL_LOG_PRIORITY_DEBUG
+SDL_LOG_PRIORITY_INFO
+SDL_LOG_PRIORITY_WARN
+SDL_LOG_PRIORITY_ERROR
+SDL_LOG_PRIORITY_CRITICAL
+
+extern proc SDL_LogGetPriority(category : int) : SDL_LogPriority;
+*/
 
 }
 

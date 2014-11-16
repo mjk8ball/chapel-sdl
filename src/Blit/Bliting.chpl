@@ -28,6 +28,13 @@ freely, subject to the following restrictions:
 
 use SDL;
 
+proc apply_surface(x : int, y : int, src : SDLSurface, dst : SDLSurface) : void {
+   var offset : SDLRect;
+   offset.x = x;
+   offset.y = y;
+   SDL_BlitSurface(src, nil, dst, offset);
+}
+
 writeln(SDL_INIT_EVERYTHING);
 SDL_Init(SDL_INIT_EVERYTHING);
 
@@ -37,7 +44,7 @@ assert( win != nil, "window allocation failed");
 var ren : SDLRenderer = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 assert( ren != nil, "renderer allocation failed"); 
 
-var bmp : SDLSurface = SDL_LoadBMP("media/hello.bmp");
+var bmp : SDLSurface = SDL_LoadBMP("hello.bmp");
 assert( bmp != nil, "surface allocation failed"); 
 
 var tex : SDLTexture = SDL_CreateTextureFromSurface(ren, bmp);
