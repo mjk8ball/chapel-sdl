@@ -72,7 +72,7 @@ extern record SDL_Window {
 }
 
 extern record SDL_Rect {
-   var x, y, w, h : int;
+   var x, y, w, h : uint;
 }
 
 extern record SDL_Surface {
@@ -114,7 +114,9 @@ extern proc SDL_GetVideoInfo() : SDLVideoInfo;
 extern proc SDL_SetVideoMode(w : int, h : int, bpp : int, flags : uint) : SDLSurface;
 
 extern proc SDL_CreateWindow(const title:c_string, x:int, y:int, w:int, h:int, flags:uint) : SDLWindow;
+
 extern proc SDL_DestroyWindow(window : SDLWindow);
+extern proc SDL_Delay(time : int);
 
 extern proc SDL_LoadBMP(const fileName : c_string) : SDLSurface;
 extern proc SDL_CreateTextureFromSurface(ren : SDLRenderer, surf : SDLSurface) : SDLTexture;
@@ -129,8 +131,6 @@ extern proc SDL_RenderCopy(ren : SDLRenderer, tex : SDLTexture, const src_rect :
 extern proc SDL_FreeSurface(surf : SDLSurface);
 extern proc SDL_RenderPresent(ren : SDLRenderer);
 
-extern proc SDL_Delay(time : int);
-
 extern proc SDL_QueryTexture(tex : SDLTexture, format : uint, access : c_ptr(int), w : c_ptr(int), h : c_ptr(int)) : int;
 
 extern proc SDL_GetBasePath() : c_string;
@@ -139,6 +139,10 @@ extern proc SDL_PollEvent( e : SDLEvent);
 extern proc SDL_PeepEvents( e : SDLEvent, numevents : int, action : SDL_eventaction, minType : uint, maxType : uint) : int;
 
 extern proc SDL_RenderCopy( ren : SDLRenderer, tex : SDLTexture, srcrect : SDL_Rect, dstrect : SDL_Rect) : int;
+
+extern proc SDL_SetRenderDrawColor( ren : SDLRenderer, r : uint, g : uint, b : uint, a : uint) : int;
+extern proc SDL_RenderDrawRect( ren : SDLRenderer, rect : SDLRect ) : int;
+extern proc SDL_RenderFillRect( ren : SDLRenderer, rect : SDLRect ) : int;
 
 extern const SDL_LOG_CATEGORY_APPLICATION : uint;
 extern const SDL_LOG_CATEGORY_ERROR : uint;
@@ -157,8 +161,7 @@ extern proc SDL_LogResetPriorities() : void;
 extern proc SDL_LogVerbose(category : int, const fmt : c_string, args ...?l) : void;
 extern proc SDL_LogWarn(category : int, const fmt : c_string, args...?k) : void;
 
-/*
-
+/***
 
 void SDL_LogSetOutputFunction(SDL_LogOutputFunction callback,
                               void*                 userdata)
@@ -183,7 +186,8 @@ SDL_LOG_PRIORITY_ERROR
 SDL_LOG_PRIORITY_CRITICAL
 
 extern proc SDL_LogGetPriority(category : int) : SDL_LogPriority;
-*/
+
+***/
 
 }
 
